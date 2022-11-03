@@ -3,16 +3,17 @@ import { View, StyleSheet, Image } from 'react-native';
 import Title from "./Title";
 import Subtitle from "./Subtitle";
 
-const BlockCard = () => {
+const BlockCard = ({ style, imageStyle, item }) => {
+    const {title, desc, thumbnail} = item;
     return (
-        <View style={styles.container}>
-            <Image source={require('../../assets/erdoganintroo.jpeg')} style={styles.image}/>
+        <View style={[styles.container, style]}>
+            <Image source={{uri: thumbnail}} style={[styles.image, imageStyle]}/>
             <View style={styles.contentContainer}>
                 <Title>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto pariatur dolores ab natus neque doloremque maiores. Nulla, impedit quo eius, earum minima quam aliquam aperiam voluptas temporibus laborum deleniti distinctio!
+                    {title}
                 </Title>
                 <Subtitle>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto pariatur dolores ab natus neque doloremque maiores. Nulla, impedit quo eius, earum minima quam aliquam aperiam voluptas temporibus laborum deleniti distinctio!
+                    {desc}
                 </Subtitle>
             </View>
         </View>

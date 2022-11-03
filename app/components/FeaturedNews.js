@@ -2,9 +2,9 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import BlockCard from './BlockCard';
 
-const FeaturedNews = () => {
+const FeaturedNews = ({item}) => {
     return (
-        <BlockCard style={{ marginVertical:15 }}/>
+        <BlockCard item={item} style={{ marginVertical:15 }}/>
     );
 };
 
