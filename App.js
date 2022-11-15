@@ -6,11 +6,16 @@ import BreakingNews from './app/components/BreakingNews';
 
 import data from './fakeData';
 import TechNews from './app/components/TechNews';
+import FlatCard from './app/components/FlatCard';
+import PoliticalNews from './app/components/PoliticalNews';
+import EntertainmentNews from './app/components/EntertainmentNews';
 
 export default function App() {
 
   const breakingNews = data.filter(item => item.category === 'breaking-news');
   const techNews = data.filter(item => item.category === 'tech');
+  const politicalNews = data.filter(item => item.category === 'political');
+  const entertainmentNews = data.filter(item => item.category === 'entertainment');
 
   return (
     <Screen>
@@ -26,7 +31,9 @@ export default function App() {
         }}
       />
       <BreakingNews data={breakingNews} />
+      <PoliticalNews data={politicalNews} />
       <TechNews data={techNews} />
+      <EntertainmentNews data={entertainmentNews} />
     </Screen>
   );
 }
