@@ -12,6 +12,18 @@ const getAll = async () => {
     }
 }
 
+const getSingle = async(id) => {
+    try{
+        const response = await apiClient.get(`/news/single/${id}`);
+
+        if(response.data.success){
+            return response.data.news;
+        }
+    }catch (error) {
+        console.log('error while getting single news', error)
+    }
+}
+
 const getByCategory = async (category, qty) => {
     const endpoint = qty ? `/news/${category}/${qty}` : `/news/${category}`
 
@@ -28,5 +40,6 @@ const getByCategory = async (category, qty) => {
 
 export default {
     getAll,
-    getByCategory
+    getByCategory,
+    getSingle
 }

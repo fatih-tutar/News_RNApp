@@ -11,7 +11,7 @@ const Screen = ({children}) => {
 
 const styles = StyleSheet.create({
     container : {
-        marginTop: 50,
+        marginTop: 10,
         paddingHorizontal: 15,
         backgroundColor: '#f7f3f3',
         flex:1,

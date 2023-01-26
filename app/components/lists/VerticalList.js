@@ -1,8 +1,8 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Title from './Title';
-import VerticalCard from './VerticalCard';
+import Title from '../common/Title';
+import VerticalCard from '../cards/VerticalCard';
 
 const VerticalList = ({title,data}) => {
     return (
