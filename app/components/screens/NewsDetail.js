@@ -4,6 +4,8 @@ import { View, Text, StyleSheet, ScrollView, Image, Dimensions } from 'react-nat
 
 import newsApi from '../../api/newsApi';
 import HorizontalList from '../lists/HorizontalList';
+import Close from '../common/Close';
+import { useNavigation } from '@react-navigation/native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -12,6 +14,8 @@ const NewsDetail = ({route}) => {
     const [news, setNews] = useState({});
     const [relatedNews, setRelatedNews] = useState({});
     const {id: postId, category: postCategory} = route.params.item;
+
+    const navigation = useNavigation();
 
     const fetchPost = async id => {
         const result = await newsApi.getSingle(id);
@@ -30,16 +34,19 @@ const NewsDetail = ({route}) => {
 
     const {title, content, thumbnail} = news;
     return (
-        <ScrollView style={styles.container}>
-            <Image style={styles.image} source={{uri: thumbnail}}/>
-            <View style={styles.contentContainer}>
-                <Text style={styles.title}>{title}</Text>
-                <Text style={styles.content}>{content}</Text>
-            </View>
-            <View style={styles.relatedPostContainer}>
-                <HorizontalList data={relatedNews} title='Related Posts' />
-            </View>
-        </ScrollView>
+        <>
+            <ScrollView style={styles.container}>
+                <Image style={styles.image} source={{uri: thumbnail}}/>
+                <View style={styles.contentContainer}>
+                    <Text style={styles.title}>{title}</Text>
+                    <Text style={styles.content}>{content}</Text>
+                </View>
+                <View style={styles.relatedPostContainer}>
+                    <HorizontalList data={relatedNews} title='Related Posts' />
+                </View>
+            </ScrollView>
+            <Close onPress={() => navigation.popToTop()}/>
+        </>
     );
 };
 

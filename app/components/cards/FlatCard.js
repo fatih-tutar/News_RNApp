@@ -1,22 +1,24 @@
 import React from "react";
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, Image, TouchableWithoutFeedback } from 'react-native';
 import Title from "../common/Title";
 import Subtitle from "../common/Subtitle";
 
-const FlatCard = ({ style, imageStyle, item }) => {
+const FlatCard = ({ item, onPress }) => {
     const {title, desc, thumbnail} = item;
     return (
-        <View style={styles.container}>
-            <Image source={{uri: thumbnail}} style={styles.image}/>
-            <View style={styles.contentContainer}>
-                <Title>
-                    {title}
-                </Title>
-                <Subtitle>
-                    {desc}
-                </Subtitle>
+        <TouchableWithoutFeedback onPress={onPress}>
+            <View style={styles.container}>
+                <Image source={{uri: thumbnail}} style={styles.image}/>
+                <View style={styles.contentContainer}>
+                    <Title>
+                        {title}
+                    </Title>
+                    <Subtitle>
+                        {desc}
+                    </Subtitle>
+                </View>
             </View>
-        </View>
+        </TouchableWithoutFeedback>
     )
 }
 

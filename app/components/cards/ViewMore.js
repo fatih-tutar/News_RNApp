@@ -1,13 +1,15 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 
 // create a component
-const ViewMore = ({style}) => {
+const ViewMore = ({style, onPress}) => {
     return (
-        <View style={[styles.container, style]}>
-            <Text style={styles.text}>ViewMore</Text>
-        </View>
+        <TouchableWithoutFeedback onPress={onPress}>
+            <View style={[styles.container, style]}>
+                <Text style={styles.text}>ViewMore</Text>
+            </View>
+        </TouchableWithoutFeedback>
     );
 };
 

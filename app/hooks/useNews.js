@@ -23,7 +23,6 @@ export default useNews = () => {
             result.push({type: 'viewMore', category: category, id: category})
         }
 
-        console.log(result);
         return result;
     }
 
