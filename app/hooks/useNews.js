@@ -1,13 +1,14 @@
 import {useState, useEffect} from 'react';
 import newsApi from '../api/newsApi';
 
-export default useNews = () => {
+export default  useNews = () => {
     const [featuredNews, setFeaturedNews] = useState([]);
     const [breakingNews, setBreakingNews] = useState([]);
     const [politicalNews, setPoliticalNews] = useState([]);
     const [techNews, setTechNews] = useState([]);
     const [entertainmentNews, setEntertainmentNews] = useState([]);
     const qty = 5;
+    const [loading, setLoading] = useState(false);  
 
     const filterFeatured = (data) => {
         return [...data].filter(item => item.featured === 'on').reverse()[0];
@@ -27,6 +28,8 @@ export default useNews = () => {
     }
 
     const filterMultipleNews = async () => {
+        setLoading(true);
+        
         const allNews =  await newsApi.getAll();
 
         setFeaturedNews(filterFeatured(allNews));
@@ -35,6 +38,8 @@ export default useNews = () => {
         setPoliticalNews(filterByCategory(allNews, 'political'));
         setTechNews(filterByCategory(allNews, 'tech'));
         setEntertainmentNews(filterByCategory(allNews, 'entertainment'));
+
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -46,6 +51,7 @@ export default useNews = () => {
         politicalNews, 
         entertainmentNews, 
         techNews, 
-        breakingNews
+        breakingNews,
+        loading
     ];
 };

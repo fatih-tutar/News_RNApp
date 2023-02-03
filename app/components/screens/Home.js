@@ -10,6 +10,7 @@ import BreakingNews from '../BreakingNews';
 import PoliticalNews from '../PoliticalNews';
 import TechNews from '../TechNews';
 import EntertainmentNews from '../EntertainmentNews';
+import ActivityIndicator from '../common/ActivityIndicator';
 
 // create a component
 const Home = () => {
@@ -18,18 +19,22 @@ const Home = () => {
         politicalNews, 
         entertainmentNews, 
         techNews, 
-        breakingNews
+        breakingNews,
+        loading
     ] = useNews();
 
     return (
-    <Screen>
-        <SearchBar/>
-        <FeaturedNews item={featuredNews}/>
-        <BreakingNews data={breakingNews}/>
-        <PoliticalNews data={politicalNews}/>
-        <TechNews data={techNews}/>
-        <EntertainmentNews data={entertainmentNews}/>
-    </Screen>
+        <>
+            <ActivityIndicator visible={loading} />
+            <Screen>
+                <SearchBar/>
+                <FeaturedNews item={featuredNews}/>
+                <BreakingNews data={breakingNews}/>
+                <PoliticalNews data={politicalNews}/>
+                <TechNews data={techNews}/>
+                <EntertainmentNews data={entertainmentNews}/>
+            </Screen>
+        </>
     );
 };
 
