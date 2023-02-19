@@ -1,5 +1,5 @@
 //import liraries
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 import useNews from '../../hooks/useNews';
@@ -14,6 +14,7 @@ import ActivityIndicator from '../common/ActivityIndicator';
 
 // create a component
 const Home = () => {
+    const [isSearchFocused, setSearchFocused] = useState(false);
     const [
         featuredNews, 
         politicalNews, 
@@ -26,8 +27,8 @@ const Home = () => {
     return (
         <>
             <ActivityIndicator visible={loading} />
-            <Screen>
-                <SearchBar/>
+            <Screen isSearchFocused={isSearchFocused}>
+                <SearchBar setSearchFocused={setSearchFocused}/>
                 <FeaturedNews item={featuredNews}/>
                 <BreakingNews data={breakingNews}/>
                 <PoliticalNews data={politicalNews}/>
