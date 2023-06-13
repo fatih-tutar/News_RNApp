@@ -10,6 +10,10 @@
   <li>The app has a splash screen</li>
 </ul>
 
+<p>App Download Link : https://expo.dev/@fatihtutar/News_RNApp</p>
+
+<h3>Screenshots</h3>
+
 <a href="https://ibb.co/zfVSxLP"><img src="https://i.ibb.co/q1YRj4m/Ekran-Resmi-2023-02-20-10-57-43.png" width="225" height="auto" alt="Ekran-Resmi-2023-02-20-10-57-43" border="0"></a>
 <a href="https://ibb.co/fHcCYLv"><img src="https://i.ibb.co/GRhVvNT/Ekran-Resmi-2023-02-20-10-59-45.png" width="225" height="auto" alt="Ekran-Resmi-2023-02-20-10-59-45" border="0"></a>
 <a href="https://ibb.co/H4tpcPg"><img src="https://i.ibb.co/g9SF0Wg/Ekran-Resmi-2023-02-20-11-00-01.png" width="225" height="auto" alt="Ekran-Resmi-2023-02-20-11-00-01" border="0"></a>
